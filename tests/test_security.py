@@ -8,6 +8,7 @@
 import pytest
 from agit.security import is_destructive
 
+
 def test_is_destructive():
     # Test a non-destructive command
     result, reason = is_destructive("git status")

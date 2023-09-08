@@ -1,5 +1,4 @@
-mocked_exec_output = \
-"""
+mocked_exec_output = """
 On branch main
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
