@@ -1,8 +1,9 @@
 microAGI Tools are Dually Licensed:
 
-microAGI tools are open sourced and free to use under GPLv3 in a non-profit context 
-(individual, open-source and non-profit endeavors). If you plan to use it in the 
-workplace or for profit please contact us at contact@vitakka.co for details and pricing.
+microAGI tools are open sourced and free to use under GPLv3 in a non-profit 
+context (individual, and non-profit endeavors). If you plan to use it in the 
+workplace or for profit please contact us at contact@vitakka.co for details 
+and pricing.
 
 
 For non profit and individual use, herein is the GPLv3 that governs this type of use:
