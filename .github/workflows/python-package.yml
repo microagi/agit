@@ -42,5 +42,6 @@ jobs:
         black .
     - name: Test with pytest
       run: |
+        poetry install --no-interaction -no-root
         poetry install --no-interaction
         pytest
