@@ -39,8 +39,13 @@ from agit.logger import mylogger
 
 async def main():
     parser = argparse.ArgumentParser(
+        prog="agit",
         description="AGit is an assistant agent that translates natural language to Git commands.",
-        epilog="Ensure you have your OpenAI API Key set as an environment variable => OPENAI_API_KEY.",
+        epilog=
+            """#microAGI, AGit  Copyright (C) 2023  Sivan Grünberg"""
+            """This program comes with **ABSOLUTELY NO WARRANTY**;"""
+            """This is free software, and you are welcome to redistribute it"""
+            """under certain conditions; see LICENSE.txt for details.""",
     )
 
     parser.add_argument(
@@ -48,6 +53,12 @@ async def main():
         type=str,
         help="The natural language commands to be translated to a Git command.",
         nargs="*",  # This makes all arguments to be collected into a list.
+    )
+
+    parser.add_argument(
+        "--version",
+        action="store_true",
+        help="Provide ATool's versios."
     )
 
     parser.add_argument(
@@ -68,6 +79,10 @@ async def main():
 
     if args.debug:
         mylogger.setLevel(DEBUG)
+
+    if args.version:
+        print("AGit Versions v0.0.9")
+        return
 
     if args.review:
         cmd = "git diff"
