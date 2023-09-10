@@ -14,8 +14,6 @@
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
 
-
-
 DESTRUCTIVE_COMMANDS = {
     "push --force": (
         "Force pushes can overwrite remote branches, potentially discarding" " commits."
