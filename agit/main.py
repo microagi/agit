@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+
 # microAGI, AGit Tool is dually licensed:
 #
 # microAGI tools are open sourced and free to use under GPLv3 in a non-profit
@@ -14,6 +15,12 @@
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+#     but WITHOUT ANY WARRANTY; without even the implied warranty of
+#     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#     GNU General Public License for more details.
+
 
 import asyncio
 from logging import DEBUG
