@@ -26,6 +26,7 @@ import asyncio
 from logging import DEBUG
 import openai
 import argparse
+from argparse import RawTextHelpFormatter
 import autopage
 
 from agit.openai_api import translate_to_git_command, review_patch
@@ -48,10 +49,12 @@ async def main():
     parser = argparse.ArgumentParser(
         prog="agit",
         description="AGit is an assistant agent that translates natural language to Git commands.",
-        epilog="""#microAGI, AGit  Copyright (C) 2023  Sivan Grünberg"""
-               """This program comes with **ABSOLUTELY NO WARRANTY**;"""
-               """This is free software, and you are welcome to redistribute it"""
-               """under certain conditions; see LICENSE.txt for details.""",
+        epilog="""#microAGI, AGit  Copyright (C) 2023  Sivan Grünberg \n"""
+               """This program comes with **ABSOLUTELY NO WARRANTY**; \n"""
+               """This is free software, and you are welcome to redistribute it \n"""
+               """under certain conditions; see LICENSE.txt for details. \n""",
+        formatter_class=RawTextHelpFormatter,
+
     )
 
     parser.add_argument(
