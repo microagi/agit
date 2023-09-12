@@ -22,34 +22,32 @@
 import subprocess
 from agit.config import ALLOWED_GIT_COMMANDS
 from pyparsing import quotedString
+from agit.util import is_interactive_command
 
-# Define a pattern for quoted strings using QuotedString class
-
-
-def execute_git_command(command_list: str):
-    print(command_list)
-    if not command_list:
+def execute_git_command(command_string: str):
+    if not command_string:
         return "Command list is empty."
 
-    quoted = quotedString.searchString(command_list)[0][0]
+    interactive = is_interactive_command(command_string)
+    quoted = quotedString.searchString(command_string)
     quotes = None
     if quoted:
+        quoted_part = quoted[0][0]
         quotes = quoted.split()[0][0]
-        command_list = command_list.replace(quoted, "")
-
-    normalized_command_list = command_list.split() + [quoted.strip(quotes)]
+        command_string = command_string.replace(quoted_part, "")
+        normalized_command_list = command_string.split() + [quoted_part.strip(quotes)]
+    else:
+        normalized_command_list = command_string.split()
     # Check if the git command is in the list of allowed commands
     if normalized_command_list[0] not in ALLOWED_GIT_COMMANDS:
         return f"Command '{normalized_command_list[0]}' is not allowed."
-
-
 
     # Execute the command
     try:
         result = subprocess.run(
             ["git", "-c", "color.ui=always", "-c", "log.decorate=true"]
             + normalized_command_list[1:],
-            capture_output=True,
+            capture_output=not interactive,
             text=True,
             check=True,
         )
