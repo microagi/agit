@@ -43,5 +43,5 @@ jobs:
     - uses: snok/install-poetry@v1
     - name: Test with pytest
       run: |
-        poetry install .
+        poetry install
         pytest
