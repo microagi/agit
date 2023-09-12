@@ -24,6 +24,7 @@ from agit.config import ALLOWED_GIT_COMMANDS
 from pyparsing import quotedString
 from agit.util import is_interactive_command
 
+
 def execute_git_command(command_string: str):
     if not command_string:
         return "Command list is empty."
@@ -51,6 +52,6 @@ def execute_git_command(command_string: str):
             text=True,
             check=True,
         )
-        return ( result.stdout or "")
+        return result.stdout or ""
     except subprocess.CalledProcessError as e:
         return e.stderr

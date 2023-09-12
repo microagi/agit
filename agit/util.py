@@ -84,6 +84,7 @@ def gather_output(cmd: str):
 
     return result.stdout
 
+
 # detect interactive commands
 # Define literals for git commands and options
 git = Literal("git")
@@ -107,7 +108,7 @@ edit = Literal("--edit")
 
 # Interactive commmands.
 # Define a word pattern to match command arguments
-arg = Word(alphanums + '-_')
+arg = Word(alphanums + "-_")
 
 # Define the grammar for git commands that launch an interactive editor
 commit_command = git + commit + Optional(m + arg)
@@ -133,6 +134,7 @@ commands = [
     var_command,
 ]
 
+
 def is_interactive_command(cmd_str):
     """
     Checks if the given git command string will launch an interactive editor.
@@ -152,6 +154,3 @@ def is_interactive_command(cmd_str):
             # If parsing fails, try the next command grammar
             continue
     return False
-
-
-
