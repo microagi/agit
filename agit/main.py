@@ -51,11 +51,10 @@ async def main():
         description="AGit is an assistant agent that translates natural language to Git commands.",
         epilog=""
         "#microAGI, AGit  Copyright (C) 2023  Sivan Grünberg, Vitakka Consulting\n"
-        "This program comes with *ABSOLUTELY NO WARRANTY*; This is free software, and \n" 
+        "This program comes with *ABSOLUTELY NO WARRANTY*; This is free software, and \n"
         "you are welcome to redistribute it under certain conditions;\n"
         "see LICENSE.txt for details. \n",
         formatter_class=RawTextHelpFormatter,
-
     )
 
     parser.add_argument(
@@ -66,9 +65,7 @@ async def main():
     )
 
     parser.add_argument(
-        "--version",
-        action="store_true",
-        help="Provide ATool's versios."
+        "--version", action="store_true", help="Provide ATool's versios."
     )
 
     parser.add_argument(
@@ -141,7 +138,7 @@ async def main():
 
         is_destructive_result = is_destructive(git_command["command"])
         if not is_destructive_result[0]:
-            stdout = execute_git_command(git_command["command"].split())
+            stdout = execute_git_command(git_command["command"])
             out_stream.write(stdout)
             return
 
@@ -152,7 +149,7 @@ async def main():
         if proceed.strip().lower() != "y":
             print("Execution stopped.")
             return
-        stdout = execute_git_command(git_command["command"].split())
+        stdout = execute_git_command(git_command["command"])
         with autopage.AutoPager(
             allow_color=True, pager_command=autopage.command.PlatformPager()
         ) as out_stream2:
