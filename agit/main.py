@@ -49,10 +49,11 @@ async def main():
     parser = argparse.ArgumentParser(
         prog="agit",
         description="AGit is an assistant agent that translates natural language to Git commands.",
-        epilog="""#microAGI, AGit  Copyright (C) 2023  Sivan Grünberg \n"""
-               """This program comes with **ABSOLUTELY NO WARRANTY**; \n"""
-               """This is free software, and you are welcome to redistribute it \n"""
-               """under certain conditions; see LICENSE.txt for details. \n""",
+        epilog=""
+        "#microAGI, AGit  Copyright (C) 2023  Sivan Grünberg, Vitakka Consulting\n"
+        "This program comes with *ABSOLUTELY NO WARRANTY*; This is free software, and \n" 
+        "you are welcome to redistribute it under certain conditions;\n"
+        "see LICENSE.txt for details. \n",
         formatter_class=RawTextHelpFormatter,
 
     )
