@@ -150,11 +150,12 @@ async def main():
             print("Execution stopped.")
             return
         stdout = execute_git_command(git_command["command"])
-        with autopage.AutoPager(
-            allow_color=True, pager_command=autopage.command.PlatformPager()
-        ) as out_stream2:
-            out_stream2.write(stdout)
-            out_stream2.flush()
+        if stdout:
+            with autopage.AutoPager(
+                allow_color=True, pager_command=autopage.command.PlatformPager()
+            ) as out_stream2:
+                out_stream2.write(stdout)
+                out_stream2.flush()
 
 
 def async_main():
