@@ -33,7 +33,7 @@ def execute_git_command(command_string: str):
     quotes = None
     if quoted:
         quoted_part = quoted[0][0]
-        quotes = quoted.split()[0][0]
+        quotes = quoted_part.split()[0][0]
         command_string = command_string.replace(quoted_part, "")
         normalized_command_list = command_string.split() + [quoted_part.strip(quotes)]
     else:
@@ -51,6 +51,6 @@ def execute_git_command(command_string: str):
             text=True,
             check=True,
         )
-        return result.stdout
+        return ( result.stdout or "")
     except subprocess.CalledProcessError as e:
         return e.stderr
