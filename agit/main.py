@@ -139,7 +139,7 @@ async def main():
         is_destructive_result = is_destructive(git_command["command"])
         if not is_destructive_result[0]:
             stdout = execute_git_command(git_command["command"])
-            out_stream.write(stdout)
+            stdout and out_stream.write(stdout)
             return
 
     if is_destructive_result[0]:
