@@ -43,6 +43,6 @@ jobs:
     - uses: snok/install-poetry@v1
     - name: Test with pytest
       run: |
-        pip install pytest==7.4.2 pytest-asyncio==0.21.1
+        pip install pytest==7.4.2 pytest-asyncio==0.21.1 openai==0.27.8
         poetry install
         pytest
