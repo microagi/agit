@@ -2,7 +2,7 @@
 
 *Making `git` a tad more civilized*
 
-![example branch parameter](https://github.com/microagi/agit/workflows/python-package.yml/badge.svg?branch=main)
+![example branch parameter](https://github.com/microagi/agit/.github/workflows/python-package.yml/badge.svg?branch=main)
 
 # AGit: Git for the Pragmatic (and Slightly Lazy) Developer
 
