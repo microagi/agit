@@ -65,15 +65,13 @@ agit 'create a new branch called feature' --explain
 
 If you've savored the flavor of my journey and the fruits of my coding labor and have been inspired to join the cause of making developer tools more conversational, more...well, human, your pull requests are as welcome as a hot cup of coffee on a cold winter's night of coding.
 
-Before we embark on this epic quest to redefine the developer's toolset, let's talk about some of the other dragons we could slay together. Git is just the tip of the software iceberg, after all. Here are a few more tools that could use a sprinkle of our magic dust:
+Before we embark on this epic quest to redefine the developer's toolset, let's talk about some of the other dragons we could slay together. Git is just the tip of the software iceberg, after all. I am already working on several other tools that I'd like to "humanize":
 
   * **Docker**: Docker is amazing but getting your container to do exactly what you want often involves a deep dive into the cryptic Dockerfile documentation. Wouldn't it be fantastic if we could just say 'create a Dockerfile with Python and Redis', and voila?
 
-  * **AWS CLI**: The sheer breadth of AWS services and command-line options can be overwhelming. An assistant to navigate this sea of possibilities and execute commands with simple instructions like 'create an EC2 instance' could revolutionize how we use AWS.
-
   * **Kubernetes** (kubectl): Kubernetes is the sort-of standard for container orchestration, but its command-line tool, kubectl, has a learning curve steeper than Mount Everest. It's begging for a dose of our humanizing elixir.
 
-  * Suggest **your tool** choice [here](https://github.com/microagi/atools/issues/new)!
+  * Suggest **your tool** of choice [here](https://github.com/microagi/atools/issues/new), and let's cooperate on making it an #microAGI together!
 
 Welcome to 2023, where we make developer tools work for us, in the language we choose.
 
