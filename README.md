@@ -42,7 +42,7 @@ To start speaking the Git language without actually learning it, you'll need:
 
 ### Then, continue to install from PyPI 
 
-`pip install agit`
+`$ pip install agit`
 
 ## How to Use Your New Powers
 
