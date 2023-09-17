@@ -40,12 +40,9 @@ To start speaking the Git language without actually learning it, you'll need:
 - Python 3.11 or higher (A magical snake, with magical powers)
 - OpenAI API key (No less magical)
 
+### Then, continue to install from PyPI 
 
-## Casting the Spell (AKA Installation)
-
-1. Clone this magical book of spells: `git clone https://github.com/username/agit.git`
-2. Walk into the spell chamber: `cd agit`
-3. Summon the magical entities: `pip install -r requirements.txt`
+`pip install agit`
 
 ## How to Use Your New Powers
 
