@@ -1,5 +1,4 @@
-<img src="https://github.com/sivang/agit/assets/310789/c382e7d2-ae40-482e-b549-389e44ec5581" width=40% height=40%> &nbsp; &nbsp; ![main branch build](https://github.com/microagi/agit/actions/workflows/python-package-main.yml/badge.svg?branch=main)
-
+<img src="https://github.com/sivang/agit/assets/310789/f9d68a5b-9a34-4bda-8055-a8059441b24e" width=40% height=40%> &nbsp; &nbsp; ![main branch build](https://github.com/microagi/agit/actions/workflows/python-package-main.yml/badge.svg?branch=main)
 
 *Making `git` a tad more civilized*
 
