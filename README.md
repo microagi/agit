@@ -1,8 +1,5 @@
 <img src="https://github.com/microagi/agit/assets/310789/b3850251-76c0-4a14-b8c0-6dd873a1f39a" width=40% height=40%> &nbsp; &nbsp; ![main branch build](https://github.com/microagi/agit/actions/workflows/python-package-main.yml/badge.svg?branch=main)
 
-![image](https://github.com/microagi/agit/assets/310789/b3850251-76c0-4a14-b8c0-6dd873a1f39a)
-
-
 *Making `git` a tad more civilized*
 
 
