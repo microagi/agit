@@ -62,9 +62,9 @@ agit 'create a new branch called feature' --explain
 
 ## Join the Order of the Lazy Coders
 
-If you've savored the flavor of my journey and the fruits of my coding labor and have been inspired to join the cause of making developer tools more conversational, more...well, human, your pull requests are as welcome as a hot cup of coffee on a cold winter's night of coding.
+If you've savored the flavor of my journey and the fruits of my coding labor and have been inspired to join the cause of making developer tools more conversational, more...well, human, your pull requests are as welcome as a hot cup of coffee on a cold winter's night of coding. See this for more contribution [encouragement :)](https://microagi.dev/contribute.html)
 
-Before we embark on this epic quest to redefine the developer's toolset, let's talk about some of the other dragons we could slay together. Git is just the tip of the software iceberg, after all. I am already working on several other tools that I'd like to "humanize":
+I am also already working on several other tools that I'd like to "humanize":
 
   * **Docker**: Docker is amazing but getting your container to do exactly what you want often involves a deep dive into the cryptic Dockerfile documentation. Wouldn't it be fantastic if we could just say 'create a Dockerfile with Python and Redis', and voila?
 
