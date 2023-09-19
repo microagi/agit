@@ -65,7 +65,9 @@ async def main():
     )
 
     parser.add_argument(
-        "--version", action="store_true", help="Provide ATool's versios."
+        "--version",
+        action="store_true",
+        help="Provide ATool's version.",
     )
 
     parser.add_argument(
@@ -83,6 +85,8 @@ async def main():
     )
 
     args = parser.parse_args()
+
+    print(args)
 
     if args.debug:
         mylogger.setLevel(DEBUG)

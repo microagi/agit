@@ -22,7 +22,7 @@
 
 import pytest
 from agit.main import main
-from unittest.mock import patch, MagicMock
+from unittest.mock import patch, MagicMock, AsyncMock
 from tests import config
 
 
@@ -37,7 +37,8 @@ async def test_main_with_translate_command(
     mocked_execute_git.return_value = config.mocked_exec_output
     mocked_args.return_value = MagicMock(
         command=["provide", "current", "status", "of", "the", "repo"],
-        debug=False,
+        debug=True,
+        version=False,
         explain=False,
         review=False,
     )
@@ -54,8 +55,9 @@ async def test_main_with_translate_command(
     mocked_translate.assert_awaited_once_with(
         "provide current status of the repo", False
     )
+
     mocked_is_destructive.assert_called_once_with("git status")
-    mocked_execute_git.assert_called_once_with(["git", "status"])
+    mocked_execute_git.assert_called_once_with("git status")
 
 
 @patch("agit.main.argparse.ArgumentParser.parse_args")
@@ -63,7 +65,11 @@ async def test_main_with_translate_command(
 async def test_main_with_review(mocked_review, mocked_args):
     # Mocking the return values
     mocked_args.return_value = MagicMock(
-        command=[], explain=False, debug=False, review=True
+        command=[],
+        explain=False,
+        debug=False,
+        review=True,
+        version=False,
     )
     mocked_review.return_value = "Looks good!"
 
