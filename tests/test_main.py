@@ -18,8 +18,7 @@
 #     but WITHOUT ANY WARRANTY; without even the implied warranty of
 #     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #     GNU General Public License for more details.
-
-
+import openai
 import pytest
 from agit.main import main
 from unittest.mock import patch, MagicMock, AsyncMock
@@ -48,6 +47,8 @@ async def test_main_with_translate_command(
     }
     mocked_is_destructive.return_value = (False, "non destructive")
 
+    # Set a dummy OpenAI Key
+    openai.api_key = "sk-OPENAIDUMMYKEYFORTESTING"
     # Run the main function
     await main()
 
