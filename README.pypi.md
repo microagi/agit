@@ -17,7 +17,7 @@ To start speaking the Git language without actually learning it, you'll need:
 Want to make Git do your bidding? Just whisper your command into AGit's ear:
 
 ```bash
-agit comapre last two revisions
+agit compare last two revisions
 ```
 
 Or:
