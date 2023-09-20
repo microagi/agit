@@ -90,7 +90,7 @@ async def main():
         mylogger.setLevel(DEBUG)
 
     if args.version:
-        print("AGit Versions v0.0.9")
+        print("AGit Versions v0.0.1")
         return
 
     if args.review:
