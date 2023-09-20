@@ -41,14 +41,14 @@ To start speaking the Git language without actually learning it, you'll need:
 
 ### Then, continue to install from PyPI 
 
-`$ pip install agit`
+`$ pip install microagi-git`
 
 ## How to Use Your New Powers
 
 Want to make Git do your bidding? Just whisper your command into AGit's ear:
 
 ```bash
-agit 'create a new branch called feature'
+agit 'create a new branch for lru cache feature'
 ```
 
 AGit will interpret your request, translate it to Git-ese, and voila! You've just manipulated the time-space coding continuum.
@@ -56,8 +56,22 @@ AGit will interpret your request, translate it to Git-ese, and voila! You've jus
 Want to know more about your magic spells? Use the --explain option:
 
 ```bash
-agit 'create a new branch called feature' --explain
+agit comapre last two revisions --explain
 ```
+
+A typical workflow for me goes like this:
+
+```bash
+agit stage only changed files
+```
+
+ And then,
+ 
+ ```bash
+agit commit saying this is a fix for the argument parsing problem
+```
+
+Feel free to experiment and report back!
 
 
 ## Join the Order of the Lazy Coders
