@@ -1,9 +1,9 @@
 [tool.poetry]
 name = "microagi-git"
-version = "0.0.9"
+version = "0.0.2"
 description = "Predictable, secure and precision tuned command-line assistant that translates natural language into Git commands."
 authors = ["Sivan Grünberg <sivan@vitakka.co>"]
-readme = "README.md"
+readme = "README.pypi.md"
 packages = [
     { include = "agit" },
 ]
