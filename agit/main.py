@@ -86,8 +86,6 @@ async def main():
 
     args = parser.parse_args()
 
-    print(args)
-
     if args.debug:
         mylogger.setLevel(DEBUG)
 
