@@ -48,7 +48,7 @@ To start speaking the Git language without actually learning it, you'll need:
 Want to make Git do your bidding? Just whisper your command into AGit's ear:
 
 ```bash
-agit 'create a new branch for lru cache feature'
+agit create a new branch for lru cache feature
 ```
 
 AGit will interpret your request, translate it to Git-ese, and voila! You've just manipulated the time-space coding continuum.
@@ -70,6 +70,13 @@ agit stage only changed files
  ```bash
 agit commit saying this is a fix for the argument parsing problem
 ```
+
+You can also ask it to revie your working copy changes (experimental)
+
+```bash
+agit --review
+```
+
 
 Feel free to experiment and report back!
 
