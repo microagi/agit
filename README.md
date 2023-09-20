@@ -6,7 +6,7 @@
 # AGit: Git for the Pragmatic (and Slightly Lazy) Developer
 
 
-https://github.com/microagi/agit/assets/310789/1a118f74-7fa4-4c1c-a61e-b7804d510174
+[](https://github.com/microagi/agit/assets/310789/1a118f74-7fa4-4c1c-a61e-b7804d510174)
 
 
 
