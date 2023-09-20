@@ -1,9 +1,16 @@
 [tool.poetry]
-name = "agit"
+name = "microagi-git"
 version = "0.0.9"
-description = ""
+description = "Predictable, secure and precision tuned command-line assistant that translates natural language into Git commands."
 authors = ["Sivan Grünberg <sivan@vitakka.co>"]
 readme = "README.md"
+packages = [
+    { include = "agit" },
+]
+
+homepage = "https://github.com/microagi/agit"
+
+keywords = ["agi", "microagi", "git", "assistant", "agent", "AI", "GPT"]
 
 [tool.poetry.dependencies]
 python = "^3.11"
@@ -17,6 +24,7 @@ pyparsing = "^3.1.1"
 
 [tool.poetry.scripts]
 agit = "agit.main:async_main"
+
 
 
 [build-system]
