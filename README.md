@@ -5,6 +5,9 @@
 
 # AGit: Git for the Pragmatic (and Slightly Lazy) Developer
 
+![image](https://github.com/microagi/agit/assets/310789/9691921f-8d78-46cd-b4e8-6c23f9b42e21)
+
+
 Are you tired of Git, with its command-line syntax that sounds like a half-baked mixture of Latin and Klingon? Do you find yourself in the middle of an intense coding session, only to be jolted out of the flow because you can't remember the exact sequence of characters to pluck a revision out or execute a particular operation? Has your mind ever screamed, "It's 2023, for crying out loud, not the 90s!"
 
 Well, welcome to the club! My name is Sivan, and like you, I'm a lazy (read: efficient) developer who loves to code but hates to wrestle with Git's arcane syntax.
