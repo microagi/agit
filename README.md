@@ -12,8 +12,7 @@ Well, welcome to the club! My name is Sivan, and like you, I'm a lazy (read: eff
 So, I created AGit: the Git whisperer, making Git a tad more civilized and a lot more human-friendly. It's a command-line assistant that translates your natural language into Git commands. Who would have thought it could be as easy as just telling Git what to do, like, in English? 
 
 Wait.. Actually, you could probably do in Deutsche oder irgendeine andere Sprache?
-![image](https://github.com/microagi/agit/assets/310789/fd1797c5-1f30-4f5a-a067-a146727de5ab)
-
+![image](https://github.com/microagi/agit/assets/310789/bf7250ec-6c75-44b1-b908-9f6c0835460d)
 
 ## The Backstory (Grab a Coffee, It's a Good One)
 Here's a not-so-secret secret about me. I've been writing software for the last 20+ years, in some circles this is referred to as a "Senior Developer". You'd think that with age and wisdom, I'd have tamed the wild beast that is `git`. But alas, no matter how old, scruffy and experienced I became, Git remained the enigma that laughed in the face of comprehension.
