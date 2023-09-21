@@ -6,6 +6,13 @@
 # context (individual, and non-profit endeavors). If you plan to use it in commercial
 # setting please contact us at <contact@vitakka.co> for details and pricing.
 #
+# Our intent with the commercial licensing is primarily to ensure the sustainability
+# and ongoing development of the microAGI project. This isn't about imposing hefty licensing
+# fees but rather a symbolic contribution to acknowledge the value and effort behind the project.
+# As a guideline, we'd appreciate a contribution equivalent to $10 to the project via GitHub Sponsors,
+# irrespective of the number of seats you require for using microAGI in your commercial setting.
+# Your support helps us continue to provide and improve this tool for everyone!
+
 # The GPLv3 governs individual, non-profit use.
 #
 # Copyright (C) 2023 Sivan Grünberg <sivan@vitakka.co>
