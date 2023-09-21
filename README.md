@@ -42,6 +42,10 @@ To start speaking the Git language without actually learning it, you'll need:
 
 `$ pip install microagi-git`
 
+### Make sure to setup your api key
+
+`export OPENAI_API_KEY="YOURAPIKEYVALUEFROMOPENAI"`
+
 ## How to Use Your New Powers
 
 Want to make Git do your bidding? Just whisper your command into AGit's ear:
