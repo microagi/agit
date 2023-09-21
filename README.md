@@ -1,4 +1,8 @@
-<img src="https://github.com/microagi/agit/assets/310789/b3850251-76c0-4a14-b8c0-6dd873a1f39a" width=50% height=50%> &nbsp; &nbsp; ![main branch build](https://github.com/microagi/agit/actions/workflows/python-package-main.yml/badge.svg?branch=main)
+<img src="https://github.com/microagi/agit/assets/310789/5a9b9595-bd12-4c3f-9d87-f5f84c00dfbc" width=50% height=50%> &nbsp; &nbsp; ![main branch build](https://github.com/microagi/agit/actions/workflows/python-package-main.yml/badge.svg?branch=main)
+
+![image](https://github.com/microagi/agit/assets/310789/5a9b9595-bd12-4c3f-9d87-f5f84c00dfbc)
+
+
 
 *Making `git` a tad more civilized*
 
