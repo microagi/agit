@@ -29,6 +29,8 @@ What's more, to protect us from those accidental *oops, I deleted everything!* m
 
 ![image](https://github.com/sivang/agit/assets/310789/fd641063-0e13-4084-b998-d453db6acb72)
 
+![puppy](https://github.com/microagi/agit/assets/310789/c109f324-bb92-41cd-a42c-31018fffff2e)
+
 
 So, if you've ever screamed into the abyss because Git just won't cooperate, AGit might just be the solution for you. It's Git for the **lazy** (or, pragmatic? ) developer, by a lazy developer who finally grew tired of playing beast tamer. So, put up your feet, relax, and let AGit take care of the Git gibberish for you. Trust me, it's a game-changer.
 ## Your Magic Wand (AKA Requirements)
