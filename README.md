@@ -27,8 +27,6 @@ With a generous helping of OpenAI's GPT-3.5-turbo, I whipped up AGit, an assista
 
 What's more, to protect us from those accidental *oops, I deleted everything!* moments, AGit even asks for confirmation before it unleashes any potentially destructive commands. Now, that's a pet I can live with! 
 
-![image](https://github.com/sivang/agit/assets/310789/fd641063-0e13-4084-b998-d453db6acb72)
-
 ![puppy](https://github.com/microagi/agit/assets/310789/c109f324-bb92-41cd-a42c-31018fffff2e)
 
 
