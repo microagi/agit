@@ -47,7 +47,7 @@ def execute_git_command(command_string: str):
     else:
         normalized_command_list = command_string.split()
     # Check if the git command is in the list of allowed commands
-    if normalized_command_list[0] not in ALLOWED_GIT_COMMANDS:
+    if (normalized_command_list[0] or normalized_command_list[1]) not in ALLOWED_GIT_COMMANDS:
         return f"Command '{normalized_command_list[0]}' is not allowed."
 
     # Execute the command
