@@ -24,13 +24,10 @@ from pyparsing import quotedString
 from agit.util import is_interactive_command
 
 
-def execute_git_command(command_string: str):
-    if not command_string:
-        return "Command list is empty."
-
-    interactive = is_interactive_command(command_string)
+def normalize(command_string: str):
     quoted = quotedString.searchString(command_string)
     quotes = None
+    normalized_command_list = None
     if quoted:
         quoted_part = quoted[0][0]
         quotes = quoted_part.split()[0][0]
@@ -38,6 +35,30 @@ def execute_git_command(command_string: str):
         normalized_command_list = command_string.split() + [quoted_part.strip(quotes)]
     else:
         normalized_command_list = command_string.split()
+
+    eq_parts = []
+    result_list = []
+    for part in normalized_command_list:
+        if eq_parts:
+            result_list.append("".join([eq_parts.pop(), f"'{part}'"]))
+        else:
+            result_list.append(part)
+
+        if part.endswith("="):
+            eq_parts.append(part)
+            
+    normalized_command_list = result_list
+    return normalized_command_list
+
+
+def execute_git_command(command_string: str):
+    if not command_string:
+        return "Command list is empty."
+
+    interactive = is_interactive_command(command_string)
+    normalized_command_list = normalize(command_string=command_string)
+    print(normalized_command_list)
+
     # Check if the git command is in the list of allowed commands
     if (
         normalized_command_list[0] or normalized_command_list[1]
@@ -46,6 +67,7 @@ def execute_git_command(command_string: str):
 
     # Execute the command
     try:
+        print (normalized_command_list)
         result = subprocess.run(
             ["git", "-c", "color.ui=always", "-c", "log.decorate=true"]
             + normalized_command_list[1:],
