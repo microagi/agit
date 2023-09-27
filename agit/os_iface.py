@@ -40,7 +40,7 @@ def normalize(command_string: str):
     result_list = []
     for part in normalized_command_list:
         if eq_parts:
-            result_list.append("".join([eq_parts.pop(), f"'{part}'"]))
+            result_list[-1] = "".join([eq_parts.pop(), f"{part}"])
         else:
             result_list.append(part)
 
@@ -57,7 +57,6 @@ def execute_git_command(command_string: str):
 
     interactive = is_interactive_command(command_string)
     normalized_command_list = normalize(command_string=command_string)
-    print(normalized_command_list)
 
     # Check if the git command is in the list of allowed commands
     if (
@@ -67,7 +66,6 @@ def execute_git_command(command_string: str):
 
     # Execute the command
     try:
-        print(normalized_command_list)
         result = subprocess.run(
             ["git", "-c", "color.ui=always", "-c", "log.decorate=true"]
             + normalized_command_list[1:],
