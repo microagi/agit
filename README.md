@@ -3,7 +3,7 @@
 *Making `git` a tad more civilized*
 
 
-# AGit: Git for the Pragmatic (and Slightly Lazy) Developer
+# AGit: Git for *Humans* , and Lazy Developers!
 
 Are you tired of Git, with its command-line syntax that sounds like a half-baked mixture of Latin and Klingon? Do you find yourself in the middle of an intense coding session, only to be jolted out of the flow because you can't remember the exact sequence of characters to pluck a revision out or execute a particular operation? Has your mind ever screamed, "It's 2023, for crying out loud, not the 90s!"
 
