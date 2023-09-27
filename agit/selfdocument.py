@@ -19,7 +19,6 @@
 #     GNU General Public License for more details.
 
 
-
 def explain():
     explanation = """
     AGit is a command-line assistant that translates natural language into Git commands.

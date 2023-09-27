@@ -19,7 +19,6 @@
 #     GNU General Public License for more details.
 
 
-
 DESTRUCTIVE_COMMANDS = {
     "push --force": (
         "Force pushes can overwrite remote branches, potentially discarding" " commits."

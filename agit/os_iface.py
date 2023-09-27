@@ -46,7 +46,7 @@ def normalize(command_string: str):
 
         if part.endswith("="):
             eq_parts.append(part)
-            
+
     normalized_command_list = result_list
     return normalized_command_list
 
@@ -67,7 +67,7 @@ def execute_git_command(command_string: str):
 
     # Execute the command
     try:
-        print (normalized_command_list)
+        print(normalized_command_list)
         result = subprocess.run(
             ["git", "-c", "color.ui=always", "-c", "log.decorate=true"]
             + normalized_command_list[1:],

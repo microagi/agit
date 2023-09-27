@@ -19,7 +19,6 @@
 #     GNU General Public License for more details.
 
 
-
 mocked_exec_output = """
 On branch main
 Untracked files:

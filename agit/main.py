@@ -19,7 +19,6 @@
 #     GNU General Public License for more details.
 
 
-
 import asyncio
 from logging import DEBUG
 import openai

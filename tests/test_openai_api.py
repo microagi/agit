@@ -19,7 +19,6 @@
 #     GNU General Public License for more details.
 
 
-
 from agit.openai_api import translate_to_git_command, review_patch
 from unittest.mock import patch
 
