@@ -21,11 +21,11 @@
 
 import subprocess
 import textwrap
-
 from colorama import Fore, Style, init
-from pyparsing import Literal, Word, alphanums, Optional, ParseException
+from pyparsing import ParseException
 
 from agit.logger import mylogger
+import agit.grammar as grammar
 
 init(autoreset=True)
 
@@ -85,56 +85,6 @@ def gather_output(cmd: str):
     return result.stdout
 
 
-# detect interactive commands
-# Define literals for git commands and options
-git = Literal("git")
-commit = Literal("commit")
-rebase = Literal("rebase")
-merge = Literal("merge")
-tag = Literal("tag")
-config = Literal("config")
-bisect = Literal("bisect")
-stash = Literal("stash")
-cherry_pick = Literal("cherry-pick")
-var = Literal("var")
-
-# Define literals for options/flags
-m = Literal("-m")
-no_edit = Literal("--no-edit")
-i = Literal("-i")
-interactive = Literal("--interactive")
-annotate = Literal("-a")
-edit = Literal("--edit")
-
-# Interactive commmands.
-# Define a word pattern to match command arguments
-arg = Word(alphanums + "-_")
-
-# Define the grammar for git commands that launch an interactive editor
-commit_command = git + commit + Optional(m + arg)
-rebase_command = git + rebase + (i | interactive) + Optional(arg)
-merge_command = git + merge + ~no_edit + Optional(arg)
-tag_command = git + tag + annotate + ~m + Optional(arg)
-config_command = git + config + edit
-bisect_command = git + bisect + Literal("run") + Optional(arg)
-stash_command = git + stash + (Literal("drop") | Literal("pop")) + Optional(arg)
-cherry_pick_command = git + cherry_pick + ~Literal("--no-commit") + Optional(arg)
-var_command = git + var + Literal("GIT_EDITOR")
-
-# List of all command grammars
-commands = [
-    commit_command,
-    rebase_command,
-    merge_command,
-    tag_command,
-    config_command,
-    bisect_command,
-    stash_command,
-    cherry_pick_command,
-    var_command,
-]
-
-
 def is_interactive_command(cmd_str):
     """
     Checks if the given git command string will launch an interactive editor.
@@ -145,7 +95,7 @@ def is_interactive_command(cmd_str):
     Returns:
     bool: True if the command will launch an interactive editor, False otherwise.
     """
-    for command in commands:
+    for command in grammar.interactive_commands:
         try:
             # Try to parse the command string using each command grammar
             command.parseString(cmd_str)

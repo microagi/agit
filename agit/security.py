@@ -20,10 +20,33 @@
 
 
 from agit.config import DESTRUCTIVE_COMMANDS
+from pyparsing import ParseException
+import agit.grammar as grammar
 
 
-def is_destructive(command):
-    for destructive_command, why in DESTRUCTIVE_COMMANDS.items():
-        if destructive_command in command:
-            return (True, why)
-    return (False, "non destructive.")
+# def is_destructive(command):
+#     for destructive_command, why in DESTRUCTIVE_COMMANDS.items():
+#         if destructive_command in command:
+#             return (True, why)
+#     return (False, "non destructive")
+
+
+def is_destructive(cmd_str):
+    """
+    Checks if the given git command string is potentially destructive.
+
+    Parameters:
+    cmd_str (str): The git command string to check.
+
+    """
+    for command in grammar.destructive_commands:
+        try:
+            # Try to parse the command string using each command grammar
+            command.parseString(cmd_str)
+            scriptalbe_command = " ".join(cmd_str.split()[1:2])
+            print(f"scriptable command {scriptalbe_command}")
+            return (True, DESTRUCTIVE_COMMANDS[scriptalbe_command])
+        except ParseException:
+            # If parsing fails, try the next command grammar
+            continue
+    return (False, "non destructive")

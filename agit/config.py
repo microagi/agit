@@ -20,79 +20,33 @@
 
 
 DESTRUCTIVE_COMMANDS = {
-    "push --force": (
-        "Force pushes can overwrite remote branches, potentially discarding" " commits."
-    ),
-    "push -f": "Shortened version of 'git push --force'.",
-    "branch -D": "Force deletes a branch, regardless of its merged status.",
-    "branch -d": (
-        "Deletes a branch. Not generally destructive, but included for" " completeness."
-    ),
-    "checkout -B": (
-        "Creates a new branch or resets an existing branch to a start point."
-        " Could overwrite work on existing branches."
-    ),
-    "checkout -b": (
-        "Creates a new branch. Not generally destructive, but included for"
-        " completeness."
-    ),
-    "clean -fd": (
-        "Force deletes untracked files and directories in the working copy,"
-        " potentially erasing work."
-    ),
-    "clean -f": (
-        "Force deletes untracked files in the working copy, potentially erasing"
-        " work."
-    ),
-    "reset --hard": (
-        "Resets the index and working tree to match a specified commit. Any"
-        " changes to tracked files in the working tree since the specified"
-        " commit are lost."
-    ),
-    "reset --soft": (
-        "Moves the HEAD to a specified commit. Changes since the specified"
-        " commit are kept. Can be destructive if not handled properly."
-    ),
-    "reset --mixed": (
-        "Resets the index but not the working tree and reports what has not"
-        " been updated."
-    ),
-    "rebase": (
-        "Applies your changes on top of another base tip, which can create"
-        " conflicts."
-    ),
-    "rm --cached": (
-        "Unstages and removes paths only from the index (not the working tree)"
-        " and can cause loss of work."
-    ),
+    "git push --force": "Force pushes can overwrite remote branches, potentially discarding commits.",
+    "git push -f": "Shortened version of 'git push --force'.",
+    "git branch -D": "Force deletes a branch, regardless of its merged status.",
+    "git branch -d": "Deletes a branch. Not generally destructive, but included for completeness.",
+    "git checkout -B": "Creates a new branch or resets an existing branch to a start point. Could overwrite work on existing branches.",
+    "git checkout -b": "Creates a new branch. Not generally destructive, but included for completeness.",
+    "git clean -fd": "Force deletes untracked files and directories in the working copy, potentially erasing work.",
+    "git clean -f": "Force deletes untracked files in the working copy, potentially erasing work.",
+    "reset --hard": "Resets the index and working tree to match a specified commit. Any changes to tracked files in the working tree since the specified commit are lost.",
+    "reset --soft": "Moves the HEAD to a specified commit. Changes since the specified commit are kept. Can be destructive if not handled properly.",
+    "reset --mixed": "Resets the index but not the working tree and reports what has not been updated.",
+    "rebase": "Applies your changes on top of another base tip, which can create conflicts.",
+    "rm --cached": "Unstages and removes paths only from the index (not the working tree) and can cause loss of work.",
     "rm": "Removes files from the working tree and from the index.",
-    "stash clear": ("Removes all stashed entries, potentially erasing saved work."),
-    "stash drop": ("Removes a single stash entry, potentially erasing saved work."),
-    "commit --amend": (
-        "Modifies the last commit, which can be dangerous if that commit has"
-        " already been pushed."
-    ),
-    "merge": (
-        "Combines changes from multiple branches. Not generally destructive,"
-        " but can create conflicts if not handled properly."
-    ),
-    "fsck --full": (
-        "Verifies the connectivity and validity of the objects in the database,"
-        " which can expose issues."
-    ),
-    "gc --prune=now": (
-        "Cleans up unnecessary files and optimizes your local repository, but"
-        " can remove objects not yet merged into the base branch."
-    ),
-    "reflog expire --expire=now --all": (
-        "Removes 'older' entries from reflog, potentially making it harder to"
-        " recover from mistakes."
-    ),
-    "update-ref -d": (
-        "Deletes a ref, potentially making it harder to find or recover that"
-        " reference point."
-    ),
+    "stash clear": "Removes all stashed entries, potentially erasing saved work.",
+    "stash drop": "Removes a single stash entry, potentially erasing saved work.",
+    "commit --amend": "Modifies the last commit, which can be dangerous if that commit has already been pushed.",
+    "merge": "Combines changes from multiple branches. Not generally destructive, but can create conflicts if not handled properly.",
+    "fsck --full": "Verifies the connectivity and validity of the objects in the database, which can expose issues.",
+    "gc --prune=now": "Cleans up unnecessary files and optimizes your local repository, but can remove objects not yet merged into the base branch.",
+    "reflog expire --expire=now --all": "Removes 'older' entries from reflog, potentially making it harder to recover from mistakes.",
+    "update-ref -d": "Deletes a ref, potentially making it harder to find or recover that reference point.",
+    "filter-branch": "Rewrites Git history, applying a filter expression to each commit, which can alter commit hashes and cause discrepancies in repository versions and may lead to loss of commit history.",
+    "filter-repo": "A faster and more flexible replacement for git filter-branch, used for rewriting Git repository history. Can be destructive due to potential loss of commits, tags, and other Git objects.",
 }
+
+
 
 porcelain_commands = [
     "add",
