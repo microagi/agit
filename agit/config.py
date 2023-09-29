@@ -47,7 +47,6 @@ DESTRUCTIVE_COMMANDS = {
 }
 
 
-
 porcelain_commands = [
     "add",
     "am",

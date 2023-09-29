@@ -126,5 +126,5 @@ destructive_commands = [
     reflog_command_expire,
     update_ref_command_d,
     filter_branch_command,
-    filter_repo_command
+    filter_repo_command,
 ]
