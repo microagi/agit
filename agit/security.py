@@ -39,14 +39,17 @@ def is_destructive(cmd_str):
     cmd_str (str): The git command string to check.
 
     """
+    scriptable_command = " ".join(cmd_str.split()[1:3])
     for command in grammar.destructive_commands:
         try:
-            # Try to parse the command string using each command grammar
             command.parseString(cmd_str)
-            scriptalbe_command = " ".join(cmd_str.split()[1:2])
-            print(f"scriptable command {scriptalbe_command}")
-            return (True, DESTRUCTIVE_COMMANDS[scriptalbe_command])
+            if DESTRUCTIVE_COMMANDS.get(scriptable_command, None):
+                return True, DESTRUCTIVE_COMMANDS[scriptable_command]
+            else:
+                scriptable_command = " ".join(cmd_str.split()[1:2])
+                return True, DESTRUCTIVE_COMMANDS[scriptable_command]
+
         except ParseException:
             # If parsing fails, try the next command grammar
             continue
-    return (False, "non destructive")
+    return False, "non destructive"

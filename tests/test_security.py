@@ -25,11 +25,24 @@ from agit.security import is_destructive
 
 def test_is_destructive():
     # Test a non-destructive command
+    # TODO: Test the new syntactic PEG support by spec'ing complex destructive commands
     result, reason = is_destructive("git status")
     assert not result
-    assert reason == "non destructive."
+    assert reason == "non destructive"
 
     # Test a destructive command (assuming "git reset --hard" is in DESTRUCTIVE_COMMANDS)
     result, reason = is_destructive("git reset --hard")
     assert result
-    assert reason != "non destructive."
+    assert reason != "non destructive"
+
+    result, reason = is_destructive("git filter-branch --env-filter")
+    assert result
+    assert reason != "non destructive"
+
+    result, reason = is_destructive("git filter-branch")
+    assert result
+    assert reason != "non destructive"
+
+    result, reason = is_destructive("git filter-repo")
+    assert result
+    assert reason != "non destructive"
