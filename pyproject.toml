@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "microagi-git"
-version = "0.0.4"
+version = "0.0.5"
 description = "Git For Humans: Predictable, secure and precision tuned command-line assistant that translates natural language into Git commands."
 authors = ["Sivan Grünberg <sivan@vitakka.co>"]
 readme = "README.pypi.md"
