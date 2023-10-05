@@ -24,6 +24,20 @@ from pyparsing import quotedString
 from agit.util import is_interactive_command
 
 
+def split_piped_command_string(command_string):
+    commands = command_string.split()
+    commands = [cmd.strip() for cmd in commands]
+    print (f"commands: {commands}")
+
+    match commands:
+        case ['|', *after]:
+            print(f"There's a pipe with commands before and after it. {after}")
+        case [*before, '|']:
+            print (f"{before}")
+        case _:
+            print("There's no pipe.")
+
+
 def normalize(command_string: str):
     quoted = quotedString.searchString(command_string)
     quotes = None
@@ -36,6 +50,7 @@ def normalize(command_string: str):
     else:
         normalized_command_list = command_string.split()
 
+    print (f"After quotes removal: {normalized_command_list}")
     eq_parts = []
     result_list = []
     for part in normalized_command_list:
@@ -47,6 +62,8 @@ def normalize(command_string: str):
         if part.endswith("=") or part.endswith(":"):
             eq_parts.append(part)
 
+    print(f"After parts parsing: {result_list}")
+
     normalized_command_list = result_list
     return normalized_command_list
 
@@ -56,6 +73,7 @@ def execute_git_command(command_string: str):
         return "Command list is empty."
 
     interactive = is_interactive_command(command_string)
+    split_piped_command_string(command_string)
     normalized_command_list = normalize(command_string=command_string)
 
     # Check if the git command is in the list of allowed commands
@@ -65,6 +83,7 @@ def execute_git_command(command_string: str):
         return f"Command '{normalized_command_list[0]}' is not allowed."
 
     # Execute the command
+    print(normalized_command_list)
     try:
         result = subprocess.run(
             ["git", "-c", "color.ui=always", "-c", "log.decorate=true"]

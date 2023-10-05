@@ -47,8 +47,7 @@ async def translate_to_git_command(natural_language, explain):
             "role": "system",
             "content": "You are an expert git revision control system mentor, you translate natural language to a "
             "coherent git command. You will only return commands that are for the git RCS tool and refuse "
-            "commands to other software. You will not use ANY OTHER commands like grep or sort or anything similar -- "
-            "Just plain git revision control commands."
+            "commands to other software."
             f"You will also return short description of the command to the user.",
         },
         {
@@ -100,7 +99,7 @@ async def review_patch(diff_content, instruct_review):
         openai.ChatCompletion.acreate(
             model="gpt-3.5-turbo-16k",
             messages=prompt_template,
-            temperature=0.2,
+            temperature=0.1,
         )
     )
     with tqdm.tqdm(
