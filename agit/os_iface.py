@@ -27,13 +27,13 @@ from agit.util import is_interactive_command
 def split_piped_command_string(command_string):
     commands = command_string.split()
     commands = [cmd.strip() for cmd in commands]
-    print (f"commands: {commands}")
+    print(f"commands: {commands}")
 
     match commands:
-        case ['|', *after]:
+        case ["|", *after]:
             print(f"There's a pipe with commands before and after it. {after}")
-        case [*before, '|']:
-            print (f"{before}")
+        case [*before, "|"]:
+            print(f"{before}")
         case _:
             print("There's no pipe.")
 
@@ -50,7 +50,7 @@ def normalize(command_string: str):
     else:
         normalized_command_list = command_string.split()
 
-    print (f"After quotes removal: {normalized_command_list}")
+    print(f"After quotes removal: {normalized_command_list}")
     eq_parts = []
     result_list = []
     for part in normalized_command_list:
