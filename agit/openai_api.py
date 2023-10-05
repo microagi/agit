@@ -62,7 +62,7 @@ async def translate_to_git_command(natural_language, explain):
         openai.ChatCompletion.acreate(
             model="gpt-3.5-turbo-16k",
             messages=prompt_template,
-            temperature=0.2,
+            temperature=0.1,
         )
     )
     with tqdm.tqdm(
@@ -99,7 +99,7 @@ async def review_patch(diff_content, instruct_review):
         openai.ChatCompletion.acreate(
             model="gpt-3.5-turbo-16k",
             messages=prompt_template,
-            temperature=0.2,
+            temperature=0.1,
         )
     )
     with tqdm.tqdm(

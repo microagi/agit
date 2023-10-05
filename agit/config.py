@@ -20,14 +20,14 @@
 
 
 DESTRUCTIVE_COMMANDS = {
-    "git push --force": "Force pushes can overwrite remote branches, potentially discarding commits.",
-    "git push -f": "Shortened version of 'git push --force'.",
-    "git branch -D": "Force deletes a branch, regardless of its merged status.",
-    "git branch -d": "Deletes a branch. Not generally destructive, but included for completeness.",
-    "git checkout -B": "Creates a new branch or resets an existing branch to a start point. Could overwrite work on existing branches.",
-    "git checkout -b": "Creates a new branch. Not generally destructive, but included for completeness.",
-    "git clean -fd": "Force deletes untracked files and directories in the working copy, potentially erasing work.",
-    "git clean -f": "Force deletes untracked files in the working copy, potentially erasing work.",
+    "push --force": "Force pushes can overwrite remote branches, potentially discarding commits.",
+    "push -f": "Shortened version of 'git push --force'.",
+    "branch -D": "Force deletes a branch, regardless of its merged status.",
+    "branch -d": "Deletes a branch. Not generally destructive, but included for completeness.",
+    "checkout -B": "Creates a new branch or resets an existing branch to a start point. Could overwrite work on existing branches.",
+    "checkout -b": "Creates a new branch. Not generally destructive, but included for completeness.",
+    "clean -fd": "Force deletes untracked files and directories in the working copy, potentially erasing work.",
+    "clean -f": "Force deletes untracked files in the working copy, potentially erasing work.",
     "reset --hard": "Resets the index and working tree to match a specified commit. Any changes to tracked files in the working tree since the specified commit are lost.",
     "reset --soft": "Moves the HEAD to a specified commit. Changes since the specified commit are kept. Can be destructive if not handled properly.",
     "reset --mixed": "Resets the index but not the working tree and reports what has not been updated.",
