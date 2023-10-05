@@ -89,4 +89,4 @@ porcelain_commands = [
 ]
 
 
-ALLOWED_GIT_COMMANDS = ["git"] + porcelain_commands
+ALLOWED_GIT_COMMANDS = ["git"] + porcelain_commands + ['sort']

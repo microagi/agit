@@ -29,13 +29,15 @@ def split_piped_command_string(command_string):
     commands = [cmd.strip() for cmd in commands]
     print(f"commands: {commands}")
 
-    match commands:
-        case ["|", *after]:
-            print(f"There's a pipe with commands before and after it. {after}")
-        case [*before, "|"]:
-            print(f"{before}")
-        case _:
-            print("There's no pipe.")
+    if "|" in commands:
+        index = commands.index("|")
+        before_pipe = " ".join(commands[:index])
+        after_pipe = " ".join(commands[index + 1 :])
+        print("Before the pipe:", before_pipe)
+        print("After the pipe:", after_pipe)
+        return (before_pipe, after_pipe)
+    else:
+        return (None, None)
 
 
 def normalize(command_string: str):
@@ -68,30 +70,63 @@ def normalize(command_string: str):
     return normalized_command_list
 
 
+def handle_pipe(command_string: str):
+    (cmd1, cmd2) = split_piped_command_string(command_string)
+    if cmd1 and cmd2:
+        cmd1 = normalize(command_string=cmd1)
+        cmd2 = normalize(command_string=cmd2)
+        return (cmd1, cmd2)
+    else:
+        return [normalize(command_string=command_string)]
+
+
+def authorize(cmd_list):
+    if (cmd_list[0] or cmd_list[1]) not in ALLOWED_GIT_COMMANDS:
+        return False
+    return True
+
+
 def execute_git_command(command_string: str):
     if not command_string:
         return "Command list is empty."
 
     interactive = is_interactive_command(command_string)
-    split_piped_command_string(command_string)
-    normalized_command_list = normalize(command_string=command_string)
+    normalized_command_list = handle_pipe(command_string)
 
+    print(normalized_command_list)
     # Check if the git command is in the list of allowed commands
-    if (
-        normalized_command_list[0] or normalized_command_list[1]
-    ) not in ALLOWED_GIT_COMMANDS:
-        return f"Command '{normalized_command_list[0]}' is not allowed."
+    for cmd_list in normalized_command_list:
+        if not authorize(cmd_list):
+            return f"Command '{cmd_list[0]}' is not allowed."
 
     # Execute the command
+    print(f"before exec: {normalized_command_list}")
     print(normalized_command_list)
-    try:
-        result = subprocess.run(
-            ["git", "-c", "color.ui=always", "-c", "log.decorate=true"]
-            + normalized_command_list[1:],
-            capture_output=not interactive,
-            text=True,
-            check=True,
-        )
-        return result.stdout or ""
-    except subprocess.CalledProcessError as e:
-        return e.stderr
+    piped = len(normalized_command_list) > 1
+    cmd1_output = None
+    result = None
+    for idx, cmd_list in enumerate(normalized_command_list):
+        if idx == 1:
+            try:
+                result = subprocess.run(
+                    cmd_list,
+                    capture_output=not interactive,
+                    text=True,
+                    check=True,
+                    input=cmd1_output,
+                )
+            except subprocess.CalledProcessError as e:
+                return e.stderr
+        else:
+            try:
+                result = subprocess.run(
+                    ["git", "-c", "color.ui=always", "-c", "log.decorate=true"]
+                    + cmd_list[1:],
+                    capture_output=not interactive,
+                    text=True,
+                    check=True,
+                )
+            except subprocess.CalledProcessError as e:
+                return e.stderr
+            cmd1_output = piped and result.stdout
+    return result.stdout or ""
