@@ -27,14 +27,12 @@ from agit.util import is_interactive_command
 def split_piped_command_string(command_string):
     commands = command_string.split()
     commands = [cmd.strip() for cmd in commands]
-    print(f"commands: {commands}")
+
 
     if "|" in commands:
         index = commands.index("|")
         before_pipe = " ".join(commands[:index])
         after_pipe = " ".join(commands[index + 1 :])
-        print("Before the pipe:", before_pipe)
-        print("After the pipe:", after_pipe)
         return (before_pipe, after_pipe)
     else:
         return (None, None)
@@ -52,7 +50,6 @@ def normalize(command_string: str):
     else:
         normalized_command_list = command_string.split()
 
-    print(f"After quotes removal: {normalized_command_list}")
     eq_parts = []
     result_list = []
     for part in normalized_command_list:
@@ -63,8 +60,6 @@ def normalize(command_string: str):
 
         if part.endswith("=") or part.endswith(":"):
             eq_parts.append(part)
-
-    print(f"After parts parsing: {result_list}")
 
     normalized_command_list = result_list
     return normalized_command_list
@@ -93,15 +88,12 @@ def execute_git_command(command_string: str):
     interactive = is_interactive_command(command_string)
     normalized_command_list = handle_pipe(command_string)
 
-    print(normalized_command_list)
     # Check if the git command is in the list of allowed commands
     for cmd_list in normalized_command_list:
         if not authorize(cmd_list):
             return f"Command '{cmd_list[0]}' is not allowed."
 
     # Execute the command
-    print(f"before exec: {normalized_command_list}")
-    print(normalized_command_list)
     piped = len(normalized_command_list) > 1
     cmd1_output = None
     result = None
