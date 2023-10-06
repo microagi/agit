@@ -62,6 +62,10 @@ Want to know more about your magic spells? Use the --explain option:
 agit comapre last two revisions --explain
 ```
 
+```bash
+agit show all authors in the repo, together with commit count and contact details 
+```
+
 A typical workflow for me goes like this:
 
 ```bash
@@ -74,10 +78,22 @@ agit stage only changed files
 agit commit saying this is a fix for the argument parsing problem
 ```
 
-You can also ask it to revie your working copy changes (experimental)
+Or if you want to add and commit at the same time:
+
+```bash
+agit commit all changes saying fix for the argument parsing problem
+```
+
+You can also ask it to review your working copy changes (experimental)
 
 ```bash
 agit --review
+```
+
+You can tell it on what to pay attention more , optional:
+
+```bash
+agit verify that there are no left over print statements --review
 ```
 
 
@@ -96,5 +112,5 @@ I am also already working on several other tools that I'd like to "humanize":
 
   * Suggest **your tool** of choice [here](https://github.com/microagi/atools/issues/new), and let's cooperate on making it an #microAGI together!
 
-Welcome to 2023, where we make developer tools work for us, in the language we choose.
+Welcome to the future , where we make developer tools work for us, in the language we choose!
 
