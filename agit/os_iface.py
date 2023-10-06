@@ -28,7 +28,6 @@ def split_piped_command_string(command_string):
     commands = command_string.split()
     commands = [cmd.strip() for cmd in commands]
 
-
     if "|" in commands:
         index = commands.index("|")
         before_pipe = " ".join(commands[:index])
