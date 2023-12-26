@@ -54,10 +54,11 @@ def retrieve_git_data(start_path):
         "recent_commits": get_commit_history(repo),
         "conflicts": get_conflict_info(repo)
     }
-    return json.dumps(data, indent=4)
+
+    return data
 
 
 if __name__ == "__main__":
     r_path = '.'  # Set the path to your git repository
     git_data = retrieve_git_data(r_path)
-    print(git_data)
+    print(json.dumps(git_data, indent=4))
