@@ -27,6 +27,7 @@ from argparse import RawTextHelpFormatter
 import autopage
 
 from agit.openai_api import translate_to_git_command, review_patch
+from agit.rag import retrieve_git_data
 from agit.selfdocument import explain
 from agit.security import is_destructive
 from agit.util import (
@@ -119,7 +120,10 @@ async def main():
     if args.debug:
         mylogger.debug(f"natural language query: {natural_language}")
 
-    git_command = await translate_to_git_command(natural_language, args.explain)
+    context = retrieve_git_data(".")
+    git_command = await translate_to_git_command(
+        natural_language, args.explain, context=context
+    )
 
     if args.debug:
         mylogger.debug(f"Model Response: {git_command}")
