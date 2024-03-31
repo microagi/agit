@@ -121,7 +121,9 @@ async def main():
         mylogger.debug(f"natural language query: {natural_language}")
 
     context = retrieve_git_data(".")
-    git_command = await translate_to_git_command(natural_language, args.explain, context=context)
+    git_command = await translate_to_git_command(
+        natural_language, args.explain, context=context
+    )
 
     if args.debug:
         mylogger.debug(f"Model Response: {git_command}")

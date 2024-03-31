@@ -17,7 +17,11 @@ def get_branch_info(repo):
 
 def get_commit_history(repo, limit=None):
     """Get the commit history, limited to the most recent 'limit' commits."""
-    commits = list(repo.iter_commits("HEAD", max_count=limit)) if limit else list(repo.iter_commits("HEAD"))
+    commits = (
+        list(repo.iter_commits("HEAD", max_count=limit))
+        if limit
+        else list(repo.iter_commits("HEAD"))
+    )
     return [
         {"hash": commit.hexsha, "author": commit.author.name, "summary": commit.summary}
         for commit in commits

@@ -39,42 +39,48 @@ def strip_markdown(text):
 async def translate_to_git_command(natural_language, explain, context=None):
     explain_instruct = ""
     if explain:
-        explain_instruct = " and also an extended explanation of the command, by the key of 'explain'."
+        explain_instruct = (
+            " and also an extended explanation of the command, by the key of 'explain'."
+        )
 
     # Serialize the context into a concise summary
     context_summary = ""
     if context:
         # Example: context = {'branches': ['main', 'feature'], 'status': 'clean', ...}
-        branches = ", ".join(context.get("branches", [])) + '\n'
+        branches = ", ".join(context.get("branches", [])) + "\n"
         commits = context.get("commits", [])
         item = ""
         result = []
         for commit in commits:
-            formatted_items = "\n".join([f"{key}: {value}" for key, value in commit.items()])
+            formatted_items = "\n".join(
+                [f"{key}: {value}" for key, value in commit.items()]
+            )
             result.append(formatted_items)
         commits_f = "\n\n".join(result)
-        status = context.get("status", "Status unknown") + '\n'
-        context_summary = f"The current branches are {branches}. " \
-                          f"The commit list is: {commits_f}" \
-                          f"The repository status is {status}. "
+        status = context.get("status", "Status unknown") + "\n"
+        context_summary = (
+            f"The current branches are {branches}. "
+            f"The commit list is: {commits_f}"
+            f"The repository status is {status}. "
+        )
 
     prompt_template = [
         {
             "role": "system",
             "content": f"You are an expert git revision control system mentor, you translate natural language to a "
-                       f"coherent git command. You will only return commands that are for the git RCS tool and refuse "
-                       f"commands to other software. You will also return a short description of the command to the user. "
-                       f"You may also require knowledge about the underlying repository in order to follow the user's query."
-                       f"In that case, you should base your answers on the provided context, which will contain all sorts"
-                       f"of information and metadata bout the underlying git repository."
-                       f"The current repository context: {context_summary}",
+            f"coherent git command. You will only return commands that are for the git RCS tool and refuse "
+            f"commands to other software. You will also return a short description of the command to the user. "
+            f"You may also require knowledge about the underlying repository in order to follow the user's query."
+            f"In that case, you should base your answers on the provided context, which will contain all sorts"
+            f"of information and metadata bout the underlying git repository."
+            f"The current repository context: {context_summary}",
         },
         {
             "role": "user",
             "content": f"Please return the response in JSON format, with the key 'command' pointing at "
-                       f"the command, the key 'description' pointing to the"
-                       f"short description of the command:```{natural_language}```"
-                       f"{explain_instruct}",
+            f"the command, the key 'description' pointing to the"
+            f"short description of the command:```{natural_language}```"
+            f"{explain_instruct}",
         },
     ]
 
@@ -86,7 +92,7 @@ async def translate_to_git_command(natural_language, explain, context=None):
         )
     )
     with tqdm.tqdm(
-            total=100, desc="Processing", bar_format="{desc}: {elapsed}"
+        total=100, desc="Processing", bar_format="{desc}: {elapsed}"
     ) as pbar:
         while not task.done():
             await asyncio.sleep(0)  # Simulate waiting
