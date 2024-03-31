@@ -17,10 +17,12 @@
 #     but WITHOUT ANY WARRANTY; without even the implied warranty of
 #     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #     GNU General Public License for more details.
+from typing import Dict, Any, List
 
 import openai
 import pytest
 from agit.main import main
+from agit.rag import retrieve_git_data
 from unittest.mock import patch, MagicMock, AsyncMock
 from tests import config
 
@@ -54,7 +56,7 @@ async def test_main_with_translate_command(
 
     # Assertions to ensure correct functions were called
     mocked_translate.assert_awaited_once_with(
-        "provide current status of the repo", False
+        "provide current status of the repo", False,
     )
 
     mocked_is_destructive.assert_called_once_with("git status")

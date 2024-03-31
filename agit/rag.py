@@ -15,9 +15,9 @@ def get_branch_info(repo):
     return [str(branch) for branch in branches]
 
 
-def get_commit_history(repo, limit=10):
+def get_commit_history(repo, limit=None):
     """Get the commit history, limited to the most recent 'limit' commits."""
-    commits = list(repo.iter_commits("HEAD", max_count=limit))
+    commits = list(repo.iter_commits("HEAD", max_count=limit)) if limit else list(repo.iter_commits("HEAD"))
     return [
         {"hash": commit.hexsha, "author": commit.author.name, "summary": commit.summary}
         for commit in commits
@@ -56,7 +56,7 @@ def retrieve_git_data(start_path):
     data = {
         "status": get_repo_status(repo),
         "branches": get_branch_info(repo),
-        "recent_commits": get_commit_history(repo),
+        "commits": get_commit_history(repo),
         "conflicts": get_conflict_info(repo),
     }
 
