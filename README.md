@@ -23,7 +23,7 @@ One fine day, while wrestling with a particularly gnarly Git command, I decided 
 
 Following the ambitious assistant Agents phenomena, I decided to take the more modest approach, the "UNIX" approach if you may of starting small and accurate. That's when the idea for AGit was born. I thought, "Let's teach this stubborn old mule some manners! Let's make it understand plain English!(and maybe some French? :D)"
 
-With a generous helping of OpenAI's GPT-3.5-turbo, I whipped up AGit, an assistant that takes your Git commands in the language you speak every day. And, just like that, Git started behaving like a well-trained pet.
+With a generous helping of OpenAI's GPT-4-turbo, I whipped up AGit, an assistant that takes your Git commands in the language you speak every day. And, just like that, Git started behaving like a well-trained pet.
 
 What's more, to protect us from those accidental *oops, I deleted everything!* moments, AGit even asks for confirmation before it unleashes any potentially destructive commands. Now, that's a pet I can live with! 
 
