@@ -46,9 +46,9 @@ from agit.logger import mylogger
 async def main():
     parser = argparse.ArgumentParser(
         prog="agit",
-        description="AGit is an assistant agent that translates natural language to Git commands.",
+        description="AGit is an secure assistant agent that translates natural language to Git commands.",
         epilog=""
-        "#microAGI, AGit  Copyright (C) 2023  Sivan Grünberg, Vitakka Consulting\n"
+        "#microAGI, AGit  Copyright (C) 2023-2024  Sivan Grünberg, Vitakka Consulting\n"
         "This program comes with *ABSOLUTELY NO WARRANTY*; This is free software, and \n"
         "you are welcome to redistribute it under certain conditions;\n"
         "see LICENSE.txt for details. \n",

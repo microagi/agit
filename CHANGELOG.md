@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+
+## [0.0.6] - 1 April 2024
+
+- Fixed pipe commands processing.
+- Introduced RAG functionality, AGit now knows your repository and uses this knowledge in its responses.
+- This means though, that it just got a lot smarter!
+
+
 ## [0.0.5]
 
 ### Fixed - 2023-09-30
