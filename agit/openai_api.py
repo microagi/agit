@@ -69,7 +69,7 @@ async def translate_to_git_command(natural_language, explain, context=None):
             "role": "system",
             "content": f"You are an expert git revision control system mentor, you translate natural language to a "
             f"coherent git command. You will only return commands that are for the git RCS tool and refuse "
-            f"commands to other software. You will also return a short description of the command to the user. "
+            f"commands to other software. You will also return a short description of the command to the user. ",
         },
         {
             "role": "user",
@@ -82,8 +82,7 @@ async def translate_to_git_command(natural_language, explain, context=None):
             f"alwys use it when producing your answers."
             f"Context: {context_summary}"
             f"Do not return language markdown such as ```json, but just the actual text of the items inside JSON. Do not"
-            f"quote the JSON text from the outside using any type quotes as this is redundant."
-
+            f"quote the JSON text from the outside using any type quotes as this is redundant.",
         },
     ]
 
