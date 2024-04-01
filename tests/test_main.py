@@ -40,7 +40,7 @@ def any_p(cls):
 @patch("agit.main.execute_git_command")
 @patch("agit.main.is_destructive")
 async def test_main_with_translate_command(
-        mocked_is_destructive, mocked_execute_git, mocked_translate, mocked_args
+    mocked_is_destructive, mocked_execute_git, mocked_translate, mocked_args
 ):
     # Mocking the return values
     mocked_execute_git.return_value = config.mocked_exec_output
