@@ -27,12 +27,20 @@ from unittest.mock import patch, MagicMock, AsyncMock
 from tests import config
 
 
+def any_p(cls):
+    class any_p(cls):
+        def __eq__(self, other):
+            return True
+
+    return any_p()
+
+
 @patch("agit.main.argparse.ArgumentParser.parse_args")
 @patch("agit.main.translate_to_git_command")
 @patch("agit.main.execute_git_command")
 @patch("agit.main.is_destructive")
 async def test_main_with_translate_command(
-    mocked_is_destructive, mocked_execute_git, mocked_translate, mocked_args
+        mocked_is_destructive, mocked_execute_git, mocked_translate, mocked_args
 ):
     # Mocking the return values
     mocked_execute_git.return_value = config.mocked_exec_output

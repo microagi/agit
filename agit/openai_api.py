@@ -70,23 +70,26 @@ async def translate_to_git_command(natural_language, explain, context=None):
             "content": f"You are an expert git revision control system mentor, you translate natural language to a "
             f"coherent git command. You will only return commands that are for the git RCS tool and refuse "
             f"commands to other software. You will also return a short description of the command to the user. "
-            f"You may also require knowledge about the underlying repository in order to follow the user's query."
-            f"In that case, you should base your answers on the provided context, which will contain all sorts"
-            f"of information and metadata bout the underlying git repository."
-            f"The current repository context: {context_summary}",
         },
         {
             "role": "user",
             "content": f"Please return the response in JSON format, with the key 'command' pointing at "
             f"the command, the key 'description' pointing to the"
-            f"short description of the command:```{natural_language}```"
-            f"{explain_instruct}",
+            f"short description of the command achieving the natural language query: {natural_language}"
+            f"{explain_instruct}"
+            f"A context is provided, which has metadata information, to complement your answers."
+            f"If there is similar names, branches, commit messages  in the context to same requested in the user query, "
+            f"alwys use it when producing your answers."
+            f"Context: {context_summary}"
+            f"Do not return language markdown such as ```json, but just the actual text of the items inside JSON. Do not"
+            f"quote the JSON text from the outside using any type quotes as this is redundant."
+
         },
     ]
 
     task = asyncio.create_task(
         openai.ChatCompletion.acreate(
-            model="gpt-3.5-turbo-16k",
+            model="gpt-4-0125-preview",
             messages=prompt_template,
             temperature=0,
         )
