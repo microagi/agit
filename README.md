@@ -36,7 +36,7 @@ So, if you've ever screamed into the abyss because Git just won't cooperate, AGi
 To start speaking the Git language without actually learning it, you'll need:
 
 - Python 3.11 or higher (A magical snake, with magical powers)
-- OpenAI Plus account and API key ChatGPT4 (No less magical)
+- OpenAI Plus account and API key for ChatGPT4 (No less magical)
 
 ### Then, continue to install from PyPI 
 
